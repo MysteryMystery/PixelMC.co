@@ -1,0 +1,19 @@
+$enable-rounded: false;
+
+$font-size-base: 1.25rem;
+
+$body-bg: #e7f0f1;
+
+$theme-colors: (
+    "primary": #4163de,
+    "hero": #efc11c,
+
+    "success": #198754,
+    "error": #dc3545,
+    "warning": #ffc107,
+
+    "founder": #C1292E,
+    "developer": #235789,
+
+    "light": $body-bg,
+);

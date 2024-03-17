@@ -1,0 +1,21 @@
+<html>
+<head>
+    {% include head.html %}
+</head>
+<body class="default-bg">
+    <div class="d-flex flex-column">
+        <div> {% include navbar.html %}</div>
+        <div class="flex-grow-1">
+            <div class="container bg-light p-4">
+                <h1 class="display-4">{{ page.title }}</h1>
+                <p>{{ page.date | date_to_long_string: "ordinal" }} | {{ page.categories }}</p>
+                <hr/>
+                {{ content }}
+            </div>
+        </div>
+        <div> {% include footer.html %}</div>
+    </div>
+
+    {% include js-common.html %}
+</body>
+</html>
