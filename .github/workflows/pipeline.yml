@@ -18,8 +18,9 @@ jobs:
       # setup ruby
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automaticall
+          ruby-version: '3.2.2'
+          bundler: '2.5.6'
+          bundler-cache: true 
 
       # checkout
       - uses: actions/checkout@v3
