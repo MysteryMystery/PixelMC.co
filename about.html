@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="container">
-    {% assign ordered_ranks = site.data.staff_ranks %}
+    {% assign ordered_ranks = site.data.staff_ranks | sort: "position" %}
     {% for rank in ordered_ranks %}
         <div class="bg-{{ rank.css_class }} px-4 py-1">
             <h1 class="display-6 text-white">{{ rank.name }}</h1>
