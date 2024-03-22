@@ -1,0 +1,6 @@
+- name: Founder
+  position: 0
+  css_class: founder
+- name: Developer/Ops
+  position: 1
+  css_class: developer
