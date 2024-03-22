@@ -3,35 +3,23 @@ layout: default
 ---
 
 <div class="container">
-    <div class="bg-founder px-4 py-1">
-        <h1 class="display-6 text-white">Founder</h1>
-    </div>
-    <div class="d-flex justify-content-center p-1">
-        {% assign founders = site.staff_members | where:"position","Founder" %}
-        {% for staff_member in founders %}
-        <div class="card m-1">
-            <div class="card-body">
-                <img src="{{ staff_member.avatar_link }}" class="img-fluid"/>
-                <p class="text-center">{{ staff_member.name }}</p>
-            </div>
+    {% assign ordered_ranks = site.data.staff_ranks %}
+    {% for rank in ordered_ranks %}
+        <div class="bg-{{ rank.css_class }} px-4 py-1">
+            <h1 class="display-6 text-white">{{ rank.name }}</h1>
         </div>
-        {% endfor %}
-    </div>
-
-    <div class="bg-developer px-4 py-1">
-        <h1 class="display-6 text-white">Developer/Ops</h1>
-    </div>
-    <div class="d-flex justify-content-center p-1">
-        {% assign devs = site.staff_members | where:"position","Developer/Ops" %}
-        {% for staff_member in devs %}
-        <div class="card m-1">
-            <div class="card-body">
-                <img src="{{ staff_member.avatar_link }}" class="img-fluid"/>
-                <p class="text-center">{{ staff_member.name }}</p>
-            </div>
+        <div class="d-flex justify-content-center p-1">
+            {% assign staff_members = site.data.staff_members | where:"position",rank.name %}
+            {% for staff_member in staff_members %}
+                <div class="card m-1">
+                    <div class="card-body">
+                        <img src="{{ staff_member.avatar_link }}" class="img-fluid"/>
+                        <p class="text-center">{{ staff_member.name }}</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
+    {% endfor %}
 
     <div class="bg-light p-2">
         <h1 class="text-center display-6">Our Mantra</h1>

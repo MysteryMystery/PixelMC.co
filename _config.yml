@@ -37,8 +37,6 @@ plugins:
 #paginate: 25
 
 collections:
-  staff_members:
-    output: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
