@@ -10,7 +10,15 @@ layout: default
               <h2 class="accordion-header bg-primary">
                 <button class="accordion-button {% if forloop.first == false %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.index }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ forloop.index }}">
                   <div>
-                    <h3 class="display-6">{{ post.title }}</h3>
+                    <h3 class="display-6">
+                        {{ post.title }}
+                    </h3>
+                    {% if post.author %}
+                        <p>By {{ post.author }} 
+                            {% assign author = site.data.staff_members | where:"name",post.author | first %}
+                            <img class="img-fluid" style="height: 1rem;" src="{{ author.head_link }}"/>
+                        </p>
+                    {% endif %}
                     <div class="d-flex gap-1 flex-wrap-1">
                         <small class="bg-primary text-light rounded p-1">{{ post.categories }}</small>
                         <small class="bg-light text-black rounded p-1">{{ post.date | date_to_long_string: "ordinal" }}</small>
