@@ -4,25 +4,27 @@ layout: default
 
 <div class="container">
     <div class="row">
-        {% for post in site.posts %}
-            <div class="col-12 col-md-6 col-lg-4 p-1 p-md-2 p-lg-3">
-                <a class="nav-link" href="{{ post.url }}">
-                <div class="card my-1 border-0">
-                    <div class="card-header bg-primary text-light">
-                        <h1 class="display-6">
-                            {{ post.title }}
-                        </h1>
-                        <div class="d-flex gap-1 flex-wrap-1">
-                            <small class="bg-light text-black rounded p-1">{{ post.date | date_to_long_string: "ordinal" }}</small>
-                            <small class="bg-light text-black rounded p-1">{{ post.categories }}</small>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>{{ post.excerpt }}</p>
-                    </div>
+        <div class="accordion" id="accordionExample">
+            {% for post in site.posts %}
+            <div class="accordion-item my-2">
+              <h2 class="accordion-header bg-primary">
+                <button class="accordion-button {% if forloop.first == false %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.index }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ forloop.index }}">
+                  <div>
+                    <h3 class="display-6">{{ post.title }}</h3>
+                    <div class="d-flex gap-1 flex-wrap-1">
+                        <small class="bg-primary text-light rounded p-1">{{ post.categories }}</small>
+                        <small class="bg-light text-black rounded p-1">{{ post.date | date_to_long_string: "ordinal" }}</small>
+                     </div>
+                  </div>
+                </button>
+              </h2>
+              <div id="collapse{{ forloop.index }}" class="accordion-collapse collapse {% if forloop.first %} show {% endif %}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  {{ post.content }}
                 </div>
-                </a>
+              </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
