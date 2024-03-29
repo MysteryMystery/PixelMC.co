@@ -5,23 +5,28 @@ layout: landing
 <div id="landing" class="default-bg">
     {% include navbar.html dark="true" %}
 
-    <div class="d-flex align-items-center h-100">
-        <div class="container">
+    <div class="d-flex flex-column align-items-center justify-content-center h-100">
+        <div class="container" style="margin-top: 10rem;">
             <div class="d-flex justify-content-center">
                 <img class="img-fluid" src="assets/img/brand/logo.png"/>
             </div>
-           
-           <div class="d-flex justify-content-center">
-                <h1 class="ip text-white p-1 rounded">play.pixelmc.co</h1>
-           </div>
-        
-           <div class="d-flex justify-content-center">
-                <p class="text-white">click to copy</p>
+        </div>
+        <div class="container flex-grow-1">
+           <div class="text-center p-2 mb-2">
+                <div id="ip-wrapper" class="d-inline-block">
+                    <div class="d-flex justify-content-center">
+                        <h1 class="ip text-white p-1 rounded">play.pixelmc.co</h1>
+                    </div>
+                
+                    <div class="d-flex justify-content-center">
+                        <p id="click-to-copy" class="text-white">click to copy</p>
+                    </div>
+                </div>
             </div>
         
-            <div class="d-flex justify-content-center gap-4">
-                <a class="btn btn-hero btn-lg" href="https://shop.pixelmc.co/?_gl=1*vv9pdm*_ga*MzM4MTg2Ny4xNzEwNDM4NTM5*_ga_R5Y3GDE3KT*MTcxMDYwMzU5MS42LjEuMTcxMDYwMzk5OS4wLjAuMA..">Web Store</a>
-                <a class="btn btn-hero btn-lg" href="https://discord.com/invite/HRMbcRK">Forums</a>
+            <div class="d-flex justify-content-center gap-5">
+                <a class="btn btn-hero btn-lg px-2 py-3 rounded-pill" style="width: 14rem;" href="https://shop.pixelmc.co/?_gl=1*vv9pdm*_ga*MzM4MTg2Ny4xNzEwNDM4NTM5*_ga_R5Y3GDE3KT*MTcxMDYwMzU5MS42LjEuMTcxMDYwMzk5OS4wLjAuMA..">Web Store</a>
+                <a class="btn btn-hero btn-lg px-2 py-3 rounded-pill" style="width: 14rem;" href="https://discord.com/invite/HRMbcRK">Forums</a>
             </div>
         </div>
     </div>
@@ -65,16 +70,8 @@ layout: landing
         </div>
         <div class="col-12 col-lg-4">
             <iframe src="https://discord.com/widget?id=181439927358193664&amp;theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        </div>
-    </div>
 
-    <div class="row mb-4">
-        <div class="col-12 col-md-8 p-4">
-            <h1 class="text-center fw-bold">About Us</h1>
-            <p>Welcome to PixelMC, the ultimate Minecraft server for Pokemon fans! Pixelmon is a modded server that allows you to catch, train, battle and trade over 900 different Pokemon in a custom Minecraft world. You can join gyms, participate in tournaments, collect badges, and even create your own Pokemon team. PixelMC is more than just a server, it’s a community of passionate Pokemon lovers who enjoy playing together and sharing their adventures. Whether you are a casual player or a hardcore fan, you will find something to love in PixelMC. Join us today and experience the thrill of catching ’em all!</p>
-        </div>
-        <div class="col-12 col-md-4 p-4">
-            <h1 class="fw-bold">Vote Links</h1>
+            <h1 class="fw-bold mt-4">Vote Links</h1>
             
             <ul>
                 <li><a href="#">Pixelmon Servers</a></li>
@@ -85,22 +82,50 @@ layout: landing
             </ul>
         </div>
     </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="text-center fw-bold">About Us</h1>
+            <p>Welcome to PixelMC, the ultimate Minecraft server for Pokemon fans! Pixelmon is a modded server that allows you to catch, train, battle and trade over 900 different Pokemon in a custom Minecraft world. You can join gyms, participate in tournaments, collect badges, and even create your own Pokemon team. PixelMC is more than just a server, it’s a community of passionate Pokemon lovers who enjoy playing together and sharing their adventures. Whether you are a casual player or a hardcore fan, you will find something to love in PixelMC. Join us today and experience the thrill of catching ’em all!</p>
+        </div>
+    </div>
 </div>
 
 <script>
     window.addEventListener("load", () => {
         document.querySelectorAll(".ip").forEach(function(element) {
             element.addEventListener("click", function() {
-                let toggleCls = "bg-primary"
+                let toggleCls = "bg-success"
+                let clickToCopy = document.querySelector("#click-to-copy");
 
-                this.classList.toggle(toggleCls)
+                clickToCopy.innerHTML = "Copied!"
+                clickToCopy.parentElement.parentElement.classList.toggle(toggleCls)
 
                 setTimeout(() => {
-                    this.classList.toggle(toggleCls)
+                    clickToCopy.parentElement.parentElement.classList.toggle(toggleCls)
+                    clickToCopy.innerHTML = "Click to copy"
                 }, 1000)
 
                 navigator.clipboard.writeText(this.innerHTML);
             });
         });
     })
+
+    $(window).on("load", function() {
+        $(".ip").click(function() {
+            let toggleCls = "bg-success";
+            let $clickToCopy = $("#click-to-copy");
+
+            $clickToCopy.text("Copied!");
+            $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls);
+
+            setTimeout(function() {
+                $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls);
+                $clickToCopy.text("Click to copy");
+            }, 1000);
+
+            navigator.clipboard.writeText($(this).text());
+        });
+    });
+
 </script>
