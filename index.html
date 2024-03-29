@@ -16,12 +16,12 @@ layout: landing
            </div>
         
            <div class="d-flex justify-content-center">
-                <p class="text-white">click to copy</p>
+                <p id="click-to-copy" class="text-white">click to copy</p>
             </div>
         
             <div class="d-flex justify-content-center gap-4">
-                <a class="btn btn-hero btn-lg" href="https://shop.pixelmc.co/?_gl=1*vv9pdm*_ga*MzM4MTg2Ny4xNzEwNDM4NTM5*_ga_R5Y3GDE3KT*MTcxMDYwMzU5MS42LjEuMTcxMDYwMzk5OS4wLjAuMA..">Web Store</a>
-                <a class="btn btn-hero btn-lg" href="https://discord.com/invite/HRMbcRK">Forums</a>
+                <a class="btn btn-hero btn-lg p-4 rounded" href="https://shop.pixelmc.co/?_gl=1*vv9pdm*_ga*MzM4MTg2Ny4xNzEwNDM4NTM5*_ga_R5Y3GDE3KT*MTcxMDYwMzU5MS42LjEuMTcxMDYwMzk5OS4wLjAuMA..">Web Store</a>
+                <a class="btn btn-hero btn-lg p-4 rounded" href="https://discord.com/invite/HRMbcRK">Forums</a>
             </div>
         </div>
     </div>
@@ -91,12 +91,15 @@ layout: landing
     window.addEventListener("load", () => {
         document.querySelectorAll(".ip").forEach(function(element) {
             element.addEventListener("click", function() {
-                let toggleCls = "bg-primary"
+                let toggleCls = "bg-success"
+                let clickToCopy = document.querySelector("#click-to-copy");
 
-                this.classList.toggle(toggleCls)
+                clickToCopy.innerHTML = "Copied!"
+                clickToCopy.classList.toggle(toggleCls)
 
                 setTimeout(() => {
-                    this.classList.toggle(toggleCls)
+                    clickToCopy.classList.toggle(toggleCls)
+                    clickToCopy.innerHTML = "Click to copy"
                 }, 1000)
 
                 navigator.clipboard.writeText(this.innerHTML);
