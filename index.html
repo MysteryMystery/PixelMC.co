@@ -97,10 +97,10 @@ layout: landing
             let $clickToCopy = $("#click-to-copy");
 
             $clickToCopy.text("Copied!");
-            $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls);
+            $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls).fadeIn('slow');
 
             setTimeout(function() {
-                $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls);
+                $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls).fadeOut('slow');
                 $clickToCopy.text("Click to copy");
             }, 1000);
 
