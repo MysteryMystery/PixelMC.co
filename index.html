@@ -11,7 +11,7 @@ layout: landing
                 <img class="img-fluid" src="assets/img/brand/logo.png"/>
             </div>
            
-           <div>
+           <div class="inline-block">
                 <div class="d-flex justify-content-center">
                     <h1 class="ip text-white p-1 rounded">play.pixelmc.co</h1>
                 </div>
@@ -22,8 +22,8 @@ layout: landing
            </div>
         
             <div class="d-flex justify-content-center gap-4">
-                <a class="btn btn-hero btn-lg px-2 py-4 rounded-sm" style="width: 4rem;" href="https://shop.pixelmc.co/?_gl=1*vv9pdm*_ga*MzM4MTg2Ny4xNzEwNDM4NTM5*_ga_R5Y3GDE3KT*MTcxMDYwMzU5MS42LjEuMTcxMDYwMzk5OS4wLjAuMA..">Web Store</a>
-                <a class="btn btn-hero btn-lg px-2 py-4 rounded-sm" style="width: 4rem;" href="https://discord.com/invite/HRMbcRK">Forums</a>
+                <a class="btn btn-hero btn-lg px-2 py-4 rounded-pill" style="width: 12rem;" href="https://shop.pixelmc.co/?_gl=1*vv9pdm*_ga*MzM4MTg2Ny4xNzEwNDM4NTM5*_ga_R5Y3GDE3KT*MTcxMDYwMzU5MS42LjEuMTcxMDYwMzk5OS4wLjAuMA..">Web Store</a>
+                <a class="btn btn-hero btn-lg px-2 py-4 rounded-pill" style="width: 12rem;" href="https://discord.com/invite/HRMbcRK">Forums</a>
             </div>
         </div>
     </div>
@@ -97,10 +97,10 @@ layout: landing
                 let clickToCopy = document.querySelector("#click-to-copy");
 
                 clickToCopy.innerHTML = "Copied!"
-                clickToCopy.parentElement.classList.toggle(toggleCls)
+                clickToCopy.parentElement.parentElement.classList.toggle(toggleCls)
 
                 setTimeout(() => {
-                    clickToCopy.parentElement.classList.toggle(toggleCls)
+                    clickToCopy.parentElement.parentElement.classList.toggle(toggleCls)
                     clickToCopy.innerHTML = "Click to copy"
                 }, 1000)
 
