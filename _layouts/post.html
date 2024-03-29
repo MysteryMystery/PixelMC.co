@@ -10,9 +10,15 @@
                 <div class="card border-0">
                     <div class="card-header border-0 bg-primary text-light">
                         <h2 class="display-4">{{ page.title }}</h2>
+                        {% if page.author %}
+                            <p>By {{ page.author }} 
+                                {% assign author = site.data.staff_members | where:"name",page.author | first %}
+                                <img class="img-fluid" style="height: 1rem;" src="{{ author.head_link }}"/>
+                            </p>
+                        {% endif %}
                         <div class="d-flex gap-1 flex-wrap-1">
+                            <small class="bg-primary text-light rounded p-1">{{ page.categories }}</small>
                             <small class="bg-light text-black rounded p-1">{{ page.date | date_to_long_string: "ordinal" }}</small>
-                            <small class="bg-light text-black rounded p-1">{{ page.categories }}</small>
                         </div>
                     </div>
                     <div class="card-body">

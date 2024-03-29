@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $enable-rounded: false;
 
 $font-size-base: 1.25rem;
@@ -17,3 +19,8 @@ $theme-colors: (
 
     "light": $body-bg,
 );
+
+/* Accordions Config */
+$accordion-button-active-bg: map-get($map: $theme-colors, $key: "primary");
+$accordion-button-active-color: map-get($map: $theme-colors, $key: "light");
+$accordion-border-width: 0; 
