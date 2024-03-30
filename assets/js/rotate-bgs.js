@@ -9,5 +9,5 @@ window.addEventListener("load", () => {
         if (imgIndex === 6) {
             imgIndex = 1
         }
-    }, 10000)
+    }, 20000)
 })
