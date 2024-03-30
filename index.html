@@ -13,7 +13,7 @@ layout: landing
         </div>
         <div class="container flex-grow-1">
            <div class="text-center p-2 mb-2">
-                <div id="ip-wrapper" class="d-inline-block">
+                <div id="ip-wrapper" class="d-inline-block rounded-pill p-3" style="transition: background-color 0.5s ease-in-out;">
                     <div class="d-flex justify-content-center">
                         <h1 class="ip text-white p-1 rounded">play.pixelmc.co</h1>
                     </div>
@@ -110,22 +110,4 @@ layout: landing
             });
         });
     })
-
-    $(window).on("load", function() {
-        $(".ip").click(function() {
-            let toggleCls = "bg-success";
-            let $clickToCopy = $("#click-to-copy");
-
-            $clickToCopy.text("Copied!");
-            $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls);
-
-            setTimeout(function() {
-                $clickToCopy.closest('#ip-wrapper').toggleClass(toggleCls);
-                $clickToCopy.text("Click to copy");
-            }, 1000);
-
-            navigator.clipboard.writeText($(this).text());
-        });
-    });
-
 </script>
