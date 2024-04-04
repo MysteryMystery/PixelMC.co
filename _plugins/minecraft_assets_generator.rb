@@ -20,13 +20,9 @@ module MinecraftAssets
                 head_path = File.join(site.source, p["head_link"])
                 avatar_path = File.join(site.source, p["avatar_link"])
 
-                if !File.exist? head_path then
-                    downloadImg(HeadsUrl + p["name"].chomp + ".png", head_path)
-                end
-
-                if !File.exist? avatar_path then
-                    downloadImg(BodyUrl + p["name"].chomp + ".png", avatar_path)
-                end
+                downloadImg(HeadsUrl + p["name"].chomp + ".png", head_path) unless File.exist? head_path
+                
+                downloadImg(BodyUrl + p["name"].chomp + ".png", avatar_path) unless File.exist? avatar_path
             end
         end
     end
